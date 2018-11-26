@@ -1,0 +1,222 @@
+{% load staticfiles %}
+{% load socialaccount %}
+{% load pwa %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% progressive_web_app_meta %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Perris Act 2.1.5</title>
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'js/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/fontstyle.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.js' %}"></script>
+    <script src="{% static 'js/FancyBoxClone-master/js/jquery.fancybox.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'js/FancyBoxClone-master/css/jquery.fancybox.css' %}">
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+
+    <style>
+        img {
+            max-width: 100%;
+            min-width: 30%;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <section id="container" class="container-fluid">
+        <header class="row">
+
+            <div class="col-xs-12 col-md-6">
+                <div class="logo">
+                    <img id="logo" src="{% static 'img/logo.png' %}" alt="mis perris">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-5">
+                <nav id="menu" class="row">
+                    <a class="col-xs-12 col-sm-3" href="#carrusel">Inicio</a>
+                    <a class="col-xs-12 col-sm-3" href="#contacto">Quiénes somos</a>
+                    <a class="col-xs-12 col-sm-3" href="#registrate">Servicios</a>
+                    <a class="col-xs-12 col-sm-3" href="#numero">Contáctanos</a>
+                </nav>
+            </div>
+
+        </header>
+
+        <div id="inicioSesion" class="col-xs-12">
+            <a href="https://127.0.0.1:8000/admin/" class="popup-link button" id="inicioSes">Iniciar Sesión</a>
+            <a href="https://127.0.0.1:8000/admin/blog/mascota/add/" class="popup-link button" id="regisPerris">Registrar un perro</a>
+            <a href="https://127.0.0.1:8000/perris" class="popup-link button" id="listadoPerris">Listado de Perros</a>
+            <a href="https://127.0.0.1:8000/users" class="popup-link button" id="listadoUsuario">Listado de usuarios</a>
+        </div>
+
+        <div id="inicioFace" class="col-xs-12">
+                <button class="btn btn-secondary btn-block mt-5" type="submit">Registrate!</button>
+                <a class="btn btn-primary btn-block" href="{% provider_login_url "facebook" method="oauth2" %}">
+                   <span class="fab fa-facebook"></span>
+                      Login con facebook
+                 </a>
+        </div>
+
+        <div id="conexionConFB"> {% if user.is_authenticated %}
+             Hola, {{ user.username }}
+             {% endif %}
+        </div>
+
+        <div id="carrusel" class="col-xs-12">
+
+            <div id="galeria1" class="slide">
+                <div class="item">
+                    <img src="{% static 'img/imagenes_galeria/adoptados/Apolo.jpg' %}" alt="Apolo">
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/imagenes_galeria/adoptados/Duque.jpg' %}" alt="Duque">
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/imagenes_galeria/adoptados/Tom.jpg' %}" alt="Tom">
+                </div>
+            </div>
+
+            <br>
+            <p id="numero">
+                <b>+56 9 9876 5431</b>
+            </p>
+            <div class="row" id="bottom">
+
+                <div class="col-xs-12" id="icon">
+                    
+                            <div class="col-xs-3">
+                                <a class="link" href="http://facebook.com/">
+                                    <span class="icon-facebook-with-circle"></span>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <a class="link" href="http://plus.google.com/">
+                                    <span class="icon-google-plus"></span>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <a class="link" href="http://instagram.com/">
+                                    <span class="icon-instagram-with-circle"></span>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <a class="link" href="http://gmail.com/">
+                                    <span class="icon-mail"></span>
+                                </a>
+                            </div>
+                </div>
+            </div>
+            <p id="slogan">
+                <i>
+                    <b>Rescate y adopción de perros callejeros</b>
+                </i>
+            </p>
+
+
+        </div>
+        <div id="contacto" class="col-xs-12 col-md-6">
+            <h1 id="titurescate">RESCATE</h1>
+            <br>
+            <p id="subtitu">ETAPA UNO</p>
+            <p id="separador1">
+                <b>________</b>
+            </p>
+            <br>
+            <p id="rescatamos">Rescatamos perros en situacion de peligro y/o abandono. Los rehabilitamos y los
+                <br> preparamos para buscarles un hogar</p>
+            <br>
+            <img id="rescatado" src="{% static 'img/rescate.jpg' %}" alt="perro rescatado">
+        </div>
+        <div id="crowdfunding" class="col-xs-12 col-md-6">
+            <img id="crowdfun" src="{% static 'img/crowfunding.jpg' %}" alt="crowd">
+            <br>
+            <h1 id="titucrowd">CROWDFUNDING</h1>
+            <br>
+            <p id="subtitu2">FINANCIAMIENTO</p>
+            <p id="separador2">
+                <b>________</b>
+            </p>
+            <br>
+            <p id="sigue">Sigue nuestras redes sociales para informarte acerca de las diversas campañas y
+                <br> actividades que realizamos para obtener financiamiento para seguir ayudando.</p>
+            <br>
+            <button id="camp">CAMPAÑAS</button>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div id="parteAbajo" class="col-xs-12">
+                
+            <nav id="galeria2" class="row">
+                <div id="columna1" class="col-xs-4">
+                    <a class="col-xs-12 fancybox" href="{% static 'img/imagenes_galeria/rescatados/Oso.jpg' %}" data-fancybox-group="gallery" title="Me llamo Oso. Soy un poco tímido, pero si me das cariño te daré amor y dejaré que acaricies mi suave pelaje"><img
+                            id="salvados1" src="{% static 'img/imagenes_galeria/rescatados/Oso_tn.jpg' %}" title="Oso" alt="Oso"></a>
+                    <a class="col-xs-12 fancybox" href="{% static 'img/imagenes_galeria/rescatados/Maya.jpg' %}" data-fancybox-group="gallery" title="Hola soy Maya. Soy pequeña y traviesa, pero muy divertida, si me adoptas no te arrepentirás"><img
+                            id="salvados2" src="{% static 'img/imagenes_galeria/rescatados/Maya_tn.jpg' %}" title="Maya" alt="Maya"></a>
+                    <a class="col-xs-12 fancybox" href="{% static 'img/imagenes_galeria/rescatados/Wifi.jpg' %}" data-fancybox-group="gallery" title="Mi nombre es Wifi. Soy muy curioso, y como mi nombre lo dice, me encanta hacer conexiones con la gente, ¿quisieras ser mi amigo?"><img
+                            id="salvados3" src="{% static 'img/imagenes_galeria/rescatados/Wifi_tn.jpg' %}" title="Wifi" alt="Wifi"></a>
+                </div>
+                <div id="columna2" class="col-xs-4">
+                    <a class="col-xs-12 fancybox" href="{% static 'img/imagenes_galeria/rescatados/Chocolate.jpg' %}" data-fancybox-group="gallery" title="Qué tal, soy Chocolate. Soy de lo más dulce, de ahí mi nombre, ¿o creías que era solo el pelaje?"><img
+                            id="salvados4" src="{% static 'img/imagenes_galeria/rescatados/Chocolate_tn.jpg' %}" title="Chocolate" alt="Chocolate"></a>
+                    <a class="col-xs-12 fancybox" href="{% static 'img/imagenes_galeria/rescatados/Pexel.jpg' %}" data-fancybox-group="gallery" title="Me conocen como Pexel. Soy intrigante y aunque sea chico, conmigo tendrás grandes aventuras si decides adoptarme"><img
+                            id="salvados5" src="{% static 'img/imagenes_galeria/rescatados/Pexel_tn.jpg' %}" title="Pexel" alt="Pexel"></a>
+                </div>
+                <div id="columna3" class="col-xs-4">
+                    <a class="col-xs-12 fancybox" href="{% static 'img/imagenes_galeria/rescatados/Bigotes.jpg' %}" data-fancybox-group="gallery" title="Soy Bigotes. Soy de lo más juguetón, llevame contigo y nunca te aburrirás"><img
+                            id="salvados6" src="{% static 'img/imagenes_galeria/rescatados/Bigotes_tn.jpg' %}" title="Bigotes" alt="Bigotes"></a>
+                    <a class="col-xs-12 fancybox" href="{% static 'img/imagenes_galeria/rescatados/Luna.jpg' %}" data-fancybox-group="gallery" title="Luna, esa soy yo. No te dejes engañar, puedo parecer adorable, pero mi actitud es fuerte y decidida, perfecta para ser tu guardiana si me adoptas"><img
+                            id="salvados7" src="{% static 'img/imagenes_galeria/rescatados/Luna_tn.jpg' %}" title="Luna" alt="Luna"></a>
+                </div>
+
+
+
+
+
+            </nav>
+        </div>
+
+        <br> <br>
+
+        <div id="registrate" class="col-xs-12">
+                <a href="https://127.0.0.1:8000/registro" class="popup-link button" id="regis">¡REGÍSTRATE!</a>
+        </div>
+
+
+        <div id="pie" class="col-xs-12">
+            <footer>
+                <p id="creditos">
+                    <i>Desarrollo y Web Mobile - Cristofer Sagredo y Javier Vidal</i>
+                </p>
+            </footer>
+        </div>
+
+
+    </section>
+</body>
+
+
+
+</html>

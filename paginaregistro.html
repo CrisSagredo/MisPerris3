@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/validar.js"></script>
+    <script src="js/validarCampos.js"></script>
+    <title>Registro</title>
+</head>
+<body>
+
+        <div class="col-xs-12" id="contenedor-formulario">
+
+                <h1>CONTACTANOS</h1>
+
+
+                <!--w3 validator-->
+                <!--caso2-->
+                <form name="form1" method="post">
+                    <!--onSubmit="javascript:return Rut(document.form1.rut.value);"-->
+                    <label>Nombre </label>
+                    <input type="text" name="Nombre" pattern="[A-Za-z- ]{2,30}" placeholder="Juanito Pérez" id="nombre">
+                    <br>
+                    <label>correo</label>
+                    <input type="text" name="Correo" placeholder="correo@hotmail.com" id="correo">
+                    <br>
+                    <label>rut:</label>
+                    <input type="text" required="required" pattern="[0-9]{7,8}-[0-9Kk]{1}" value="" name="rut" id="rut" placeholder="12345678-5"
+                        title="ej. 12345678-5">
+                    <br>
+                    <label>Numero Telefonico +569</label>
+                    <input type="number" name="telofono" id="telefono" required>
+                    <br>
+                    <label>fechaNac</label>
+                    <input type="date" id="fechaNac" name="fechaNac" max="2001-12-31">
+                    <br>
+                    <div class="datos">
+                        <label>Region</label>
+                        <select id="regiones"></select>
+                        <br>
+                        <br>
+                        <label>Comuna</label>
+                        <select id="comunas"></select>
+
+
+                    </div>
+                    <br>
+                    <label>Seleccione tipo de vivienda</label>
+                    <select name="vivienda" id="vivienda">
+                        <option value="1">Casa con patio grande</option>
+                        <option value="2">Casa con patio pequeño</option>
+                        <option value="3">Casa sin patio</option>
+                        <option value="4">Departamento</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar" id="enviar" />
+                </form>
+            </div>
+    
+</body>
+</html>
